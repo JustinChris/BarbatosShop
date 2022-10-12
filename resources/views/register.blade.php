@@ -69,9 +69,12 @@
                 <input type="password" class="form-control" id="PassConfirmInput" placeholder="Confirm Password">
                 <label for="PassConfirmInput">Confirm Password</label>
             </div>
-            <div class="form-floating">
-                <input type="radio" class="form-control" id="PassConfirmInput" placeholder="Confirm Password">
-                <label for="PassConfirmInput">Gender</label>
+            <div class="">
+                <select name="" id="" class="form-select form-select-lg mb-2 ">
+                    <option selected>Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female"> Female</option>
+                </select>
             </div>
 
 
