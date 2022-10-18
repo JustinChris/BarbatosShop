@@ -53,6 +53,14 @@ Route::get('/product', function () {
             "productPrice" => 20000000,
             "productPhoto" => "../public/favicon.ico",
         ],
+        [
+            "ProductID" => 3,
+            "productName" => "Bedak Bayi",
+            "productCategory" => "Cosmetic",
+            "productDetail" => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem saepe consectetur id! Laboriosam quod temporibus eveniet hic, aliquid molestias magni aperiam nostrum adipisci odit nulla qui vel minus? Minima, ut!",
+            "productPrice" => 20000,
+            "productPhoto" => "../public/favicon.ico",
+        ],
     ];
     return view('product', [
         'name' => 'Guest',
