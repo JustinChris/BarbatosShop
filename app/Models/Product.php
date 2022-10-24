@@ -17,5 +17,5 @@ class Product extends Model
         'productPrice',
         'productPhoto'
     ];
-
+    public $timestamps = false;
 }

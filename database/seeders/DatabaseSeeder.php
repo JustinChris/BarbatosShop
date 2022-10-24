@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::create([
-        'categoryID' => '1',
+        'categoryID' => 1,
         'productName' => 'Frixion Ballpoint',
         'productDetail'=> 'Bolpen yang bisa dihapus dari pilot',
         'productPrice' => '25000',
