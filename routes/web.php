@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product as Product;
 
@@ -14,11 +16,7 @@ use App\Models\Product as Product;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'name' => 'Guest'
-    ]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/greet', function () {
     return view('greeting', [
@@ -36,10 +34,5 @@ Route::get('/register', function () {
 
 
 
-Route::get('/product', function () {
-    $products = Product::all();
-    return view('product', [
-        'name' => 'Guest',
-        "products" => $products,
-    ]);
-});
+Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/{id}', [ProductController::class, 'getProductById']);
