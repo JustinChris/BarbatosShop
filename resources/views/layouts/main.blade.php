@@ -27,9 +27,9 @@
                             Category
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Toys</a></li>
-                            <li><a class="dropdown-item" href="#">Cosmetic</a></li>
-                            <li><a class="dropdown-item" href="#">Computer</a></li>
+                            @foreach ($categories as $category)
+                                <li><a class="dropdown-item" href="#">{{ $category["categoryName"] }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
