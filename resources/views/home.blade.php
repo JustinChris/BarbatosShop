@@ -3,11 +3,11 @@
 @section('content')
 @foreach($categories as $category)
   <div class="container-fluid">
-    <h4>{{ $category["categoryName"] }} <a href="#">View All</a></h4>
+    <h4>{{ $category["categoryName"] }} <a href="/product/category/{{ $category["categoryID"] }}">View All</a></h4>
     <div class="row flex-row flex-nowrap" style="overflow-x: scroll;">
       @foreach ($products as $product)
         @if($category["categoryID"] == $product["categoryID"])
-          <a href="" class="text-decoration-none text-dark col-3">
+          <a href="/product/{{ $product['productID'] }}" class="text-decoration-none text-dark col-3">
             <div class="border border-dark rounded m-2" style="width: 280px; height: 417px;">
               <img src="profile/placeholder.jpg" alt="gambar product" width="278px" class="rounded-top">
               <div class="m-2">

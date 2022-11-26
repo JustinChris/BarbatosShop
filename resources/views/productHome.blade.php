@@ -8,7 +8,7 @@
     <div class="d-flex">
       @foreach ($products as $product)
         @if($category["categoryID"] == $product["categoryID"])
-          <a href="" class="text-decoration-none text-dark">
+          <a href="/product/{{ $product['productID'] }}" class="text-decoration-none text-dark">
             <div class="border border-dark rounded m-2" style="width: 280px; height: 417px;">
               <img src="profile/placeholder.jpg" alt="gambar product" width="278px" class="rounded-top">
               <div class="m-2">

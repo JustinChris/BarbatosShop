@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Barbatos | Login</title>
+    <title>Barbatos | Register</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
@@ -69,12 +69,20 @@
                 <input type="password" class="form-control" id="PassConfirmInput" placeholder="Confirm Password">
                 <label for="PassConfirmInput">Confirm Password</label>
             </div>
-            <div class="">
-                <select name="" id="" class="form-select form-select-lg mb-2 ">
-                    <option selected>Gender</option>
+            <div class="form-floating">
+                <select name="" id="GenderInput" class="form-control">
                     <option value="Male">Male</option>
                     <option value="Female"> Female</option>
                 </select>
+                <label for="GenderInput">Gender</label>
+            </div>
+            <div class="form-floating">
+                <input type="date" class="form-control" id="DOBInput" placeholder="Date Of Birth">
+                <label for="DOBInput">Date Of Birth</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="CountryInput" placeholder="Country">
+                <label for="CountryInput">Country</label>
             </div>
 
 
