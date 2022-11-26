@@ -16,7 +16,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function getProductById($id) {
+    public function getProductDetailById($id) {
         return view('productDetail', [
             'name' => 'Guest',
             'role' => 'Customer',
@@ -25,4 +25,15 @@ class ProductController extends Controller
         ]);
     }
 
+    public function getProductByCategoryId($categoryID) {
+
+        // dd(Category::where('categoryID', '=', $category)->get());
+
+        return view('productByCategory', [
+            'name' => 'Guest',
+            'products' => Product::where('categoryID', '=' , $categoryID)->get(),
+            'categories' => Category::all(),
+            'category' => Category::where('categoryID', '=', $categoryID)->firstOrFail(),
+        ]);
+    }
 }
