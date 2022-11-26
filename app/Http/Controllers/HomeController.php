@@ -12,7 +12,6 @@ class HomeController extends Controller
         return view('Home', [
             'name' => 'Guest',
             "products" => Product::all(),
-            "categories" => Category::all(),
         ]);
     }
 }

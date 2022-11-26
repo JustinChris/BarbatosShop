@@ -17,11 +17,29 @@ use App\Models\Product as Product;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+/*
+TODO: routing Page
+[X]1. Login
+[X]2. Register
+[x]3. Home
+[x]4. View Product by Category
+[ ]5. Product Detail
+    [ ]1. Guest and admin
+    [ ]2. Customer/member
+[ ]6. Manage Product 
+[ ]7. Add Product (Admin)
+[ ]8. Update Product (Admin)
+[ ]9. Profile
+[ ]10. Cart Page (Customer)
+[ ]11. History Page (Customer)
+*/
 
-Route::get('/login',[LoginController::class, 'login']);
-Route::get('/register',[LoginController::class, 'register']);
+Route::get('/', [HomeController::class, 'index']); // Home
 
-Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/category/{category}', [ProductController::class, 'getProductByCategoryId']);
-Route::get('/product/{id}', [ProductController::class, 'getProductDetailById']);
+Route::get('/login',[LoginController::class, 'login']); // Login
+Route::get('/register',[LoginController::class, 'register']); // Register
+
+Route::get('/product', [ProductController::class, 'index']); // View Product
+Route::get('/product/category/{category}', [ProductController::class, 'getProductByCategoryId']); // View Product by Category
+Route::get('/product/{id}', [ProductController::class, 'getProductDetailById']); // Product Detail
+

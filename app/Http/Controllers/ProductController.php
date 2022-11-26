@@ -12,7 +12,6 @@ class ProductController extends Controller
         return view('product', [
             'name' => 'Guest',
             "products" => Product::all(),
-            "categories" => Category::all(),
         ]);
     }
 
@@ -20,7 +19,6 @@ class ProductController extends Controller
         return view('productDetail', [
             'name' => 'Guest',
             'role' => 'Customer',
-            'categories' => Category::all(),
             'singleProduct' => Product::findOrFail($id),
         ]);
     }
@@ -32,7 +30,6 @@ class ProductController extends Controller
         return view('productByCategory', [
             'name' => 'Guest',
             'products' => Product::where('categoryID', '=' , $categoryID)->get(),
-            'categories' => Category::all(),
             'category' => Category::where('categoryID', '=', $categoryID)->firstOrFail(),
         ]);
     }

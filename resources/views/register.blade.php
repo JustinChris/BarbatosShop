@@ -50,6 +50,7 @@
 
     <main class="form-signin w-100 m-auto">
         <form>
+            @csrf
             <h1><b>Barbatos App</b></h1>
             <h1 class="h3 mb-3 fw-normal">Register</h1>
 
