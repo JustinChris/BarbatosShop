@@ -49,6 +49,22 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'categoryID' => 1,
+            'productName' => 'Headphone GR987',
+            'productDetail'=> 'Headphone GR987 cocok digunakan untuk bermain game. Buat kalian para Gamers!',
+            'productPrice' => 250000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
+            'productName' => 'Kabel HDMI to HDMI',
+            'productDetail'=> 'Kabel HDMI to HDMI cocok digunakan untuk menyambungkan monitor dan CPU. Koneksi cepat, kabel shielded kualitas terbaik',
+            'productPrice' => 150000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
             'productName' => 'Microphone GX111',
             'productDetail'=> 'Microphone GX111 suara jernih tidak ada cacat. Cocok untuk streaming atau recording',
             'productPrice' => 150000,

@@ -49,41 +49,48 @@
 <body class="text-center">
 
     <main class="form-signin w-100 m-auto">
-        <form>
+        <form action="/register" method="post" enctype="multipart/form-data">
             @csrf
             <h1><b>Barbatos App</b></h1>
             <h1 class="h3 mb-3 fw-normal">Register</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="NameInput" placeholder="Name">
+                <input type="text" class="form-control" name="NameInput" id="NameInput" placeholder="Name">
                 <label for="NameInput">Name</label>
             </div>
             <div class="form-floating">
-                <input type="email" class="form-control" id="EmailInput" placeholder="example@gmail.com">
+                <input type="email" class="form-control" name="EmailInput" id="EmailInput" placeholder="example@gmail.com">
                 <label for="EmailInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="PassInput" placeholder="Password">
+                <input type="password" class="form-control" name="PassInput" id="PassInput" placeholder="Password">
                 <label for="PassInput">Password</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="PassConfirmInput" placeholder="Confirm Password">
+                <input type="password" class="form-control" name="PassConfirmInput" id="PassConfirmInput" placeholder="Confirm Password">
                 <label for="PassConfirmInput">Confirm Password</label>
             </div>
             <div class="form-floating">
-                <select name="" id="GenderInput" class="form-control">
+                <select name="GenderInput" id="GenderInput" class="form-control">
                     <option value="Male">Male</option>
                     <option value="Female"> Female</option>
                 </select>
                 <label for="GenderInput">Gender</label>
             </div>
             <div class="form-floating">
-                <input type="date" class="form-control" id="DOBInput" placeholder="Date Of Birth">
+                <input type="date" class="form-control" name="DOBInput" id="DOBInput" placeholder="Date Of Birth">
                 <label for="DOBInput">Date Of Birth</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="CountryInput" placeholder="Country">
+                <select name="CountryInput" id="CountryInput" class="form-control">
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="US">US</option>
+                </select>
                 <label for="CountryInput">Country</label>
+            </div>
+            <div class="form-floating">
+                <input type="file" class="form-control" name="PPInput" id="PPInput" placeholder="Profile Picture">
+                <label for="DOBInput">Profile Picture</label>
             </div>
 
 

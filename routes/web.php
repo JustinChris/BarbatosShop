@@ -38,8 +38,9 @@ Route::get('/', [HomeController::class, 'index']); // Home
 
 Route::get('/login',[LoginController::class, 'login']); // Login
 Route::get('/register',[LoginController::class, 'register']); // Register
+Route::post('/register', [LoginController::class, 'regUser']);
 
-Route::get('/product', [ProductController::class, 'index']); // View Product
 Route::get('/product/category/{category}', [ProductController::class, 'getProductByCategoryId']); // View Product by Category
+Route::get('/product/admin', [ProductController::class, 'manageProduct']);
 Route::get('/product/{id}', [ProductController::class, 'getProductDetailById']); // Product Detail
 
