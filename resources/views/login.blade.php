@@ -62,6 +62,10 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+
+      .error{
+        color: red;
+      }
     </style>
 
     
@@ -71,17 +75,24 @@
   <body class="text-center">
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form action="/login" method="post">
+    @csrf
     <h1><b>Barbatos App</b></h1>
     <h1 class="h3 mb-3 fw-normal">Please log in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <input type="email" class="form-control" id="emailInput" name="emailInput">
+      <label for="emailInput">Email address</label>
+      @if ($errors->has('emailInput'))
+        <span class="error">{{ $errors->first('emailInput') }}</span>
+      @endif
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" id="passInput" name="passInput">
+      <label for="passInput">Password</label>
+      @if ($errors->has('passInput'))
+        <span class="error">{{ $errors->first('passInput') }}</span>
+      @endif
     </div>
 
     <div class="checkbox mb-3">

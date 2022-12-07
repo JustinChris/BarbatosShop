@@ -5,16 +5,52 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
 {
-    public function register() {
+    public function register(Request $req) {
+        if ($req->session()->has('user')) {
+            return view('home', [
+                'user' => $req->session()->get('user'),
+                "products" => Product::all(),
+            ]);
+        }
         return view('register');
     }
 
-    public function login() {
+    public function login(Request $req) {
+        if ($req->session()->has('user')) {
+            return view('home', [
+                'user' => $req->session()->get('user'),
+                "products" => Product::all(),
+            ]);
+        }
         return view('login');
+    }
+
+    public function logout(Request $req) {
+        $req->session()->forget('user');
+        return Redirect::to('/login');
+    }
+
+    public function logUser(Request $req) {
+        request()->validate([
+            'emailInput' => 'required',
+            'passInput' => 'required',
+        ]);
+
+        $emailInput = $req->emailInput;
+        $passInput = $req->passInput;
+
+        $user = User::where('userEmail', $emailInput)
+                ->where('password', $passInput)->first();
+        if ($user) {
+            $req->session()->put('user', $user);
+            return Redirect::to('/');
+        }
+        return Redirect::to("/login")->withErrors("User Not Found!");
     }
 
     public function regUser(Request $req) {
@@ -29,13 +65,14 @@ class LoginController extends Controller
 
         $file = $req->file('PPInput');
         $imageName = $file->getClientOriginalName();
-        Storage::putFileAs('/public/profile', $file, $imageName);
-        $imageUrl = 'profile/'.$imageName;
+        // Storage::putFileAs('/public/profile', $file, $imageName);
+        $file->move(public_path('profile'), $imageName);
+        $imageUrl = '/profile/'.$imageName;
 
         $user->userPhoto = $imageUrl;
         
         $user->save();
 
-        return view('login');
+        return Redirect::to('/login');
     }
 }

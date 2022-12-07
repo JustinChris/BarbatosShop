@@ -89,6 +89,46 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'categoryID' => 1,
+            'productName' => 'Keyboard GX312',
+            'productDetail'=> 'Keyboard GX312 brown keycaps Mechanical Keyboard',
+            'productPrice' => 35000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
+            'productName' => 'Keyboard GX310',
+            'productDetail'=> 'Keyboard GX310 brown keycaps Mechanical Keyboard',
+            'productPrice' => 450000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
+            'productName' => 'Keyboard GX321',
+            'productDetail'=> 'Keyboard GX321 brown keycaps Mechanical Keyboard',
+            'productPrice' => 550000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
+            'productName' => 'Keyboard GX331',
+            'productDetail'=> 'Keyboard GX331 brown keycaps Mechanical Keyboard',
+            'productPrice' => 475000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
+            'productName' => 'Keyboard GX391',
+            'productDetail'=> 'Keyboard GX391 brown keycaps Mechanical Keyboard',
+            'productPrice' => 485000,
+            'productPhoto' => 'placeholder'
+        ]);
+
+        Product::create([
+            'categoryID' => 1,
             'productName' => 'Mouse GX411',
             'productDetail'=> 'Mouse GX411 Awet tidak mudah rusak, tahan banting lifespan 100 juta klik',
             'productPrice' => 550000,

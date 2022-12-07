@@ -17,7 +17,7 @@
                 </tr>
             </table>
             {{-- TODO: Ganti role jadi object User --}}
-            @if ($role == "Member")
+            @if ($user->userRole == "Member")
                 <label for=""><b>Qty:</b></label>
                 <input type="text" style="width: 90%">
                 <br> <br>

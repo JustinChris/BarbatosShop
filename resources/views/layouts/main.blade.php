@@ -19,7 +19,7 @@
             <a class="navbar-brand" href="/">Barbatos App</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    @if($role == 'Member')
+                    @if($user->userRole == 'Member')
                         <li class="nav-item">
                             <a class="nav-link" href="#">My Cart</a>
                         </li>
@@ -34,16 +34,16 @@
                             @endforeach
                         </ul>
                     </li>
-                    @if($role == 'Admin') 
+                    @if($user->userRole == 'Admin') 
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Manage Product</a>
+                            <a class="nav-link" href="/product/admin">Manage Product</a>
                         </li>
                     @endif
                 </ul>
             </div>
             <div class="d-flex">
-                <p class="p-2">{{ $name }}</p>
-                <img src="/profile/placeholder.jpg" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 30px;">
+                <p class="p-2">{{ $user->userName }}</p>
+                <img src="{{ $user->userPhoto }}" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 30px;">
             </div>
         </div>
 
