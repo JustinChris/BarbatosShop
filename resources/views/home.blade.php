@@ -25,11 +25,11 @@
         @if($category["categoryID"] == $product["categoryID"])
           <a href="/product/{{ $product['productID'] }}" class="text-decoration-none text-dark col-2" style="margin: 0; padding: 0;">
             <div class="border border-dark rounded m-2" style="width: 15vw; height: 50vh;">
-              <img src="profile/placeholder.jpg" alt="gambar product" width="100%" class="rounded-top">
+              <img src="{{$product['productPhoto']}}" alt="gambar product" width="100%" class="rounded-top">
               <div class="m-2">
                 <div class="mt-3 bg-success text-light text-center fw-bold rounded border border-dark" style="width: 40%;"> {{ $product["productCategory"] }} </div>
                 <p class="mt-2">{{ $product["productName"] }}</p>
-                <h2 class="fw-bold">Rp {{ $product["productPrice"] }}</h2>
+                <h3 class="fw-bold">Rp {{ $product["productPrice"] }}</h3>
               </div>
             </div>
           </a>

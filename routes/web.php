@@ -26,16 +26,18 @@ TODO: routing Page
 [X]5. Product Detail
     [X]1. Guest and admin
     [X]2. Member
-[ ]6. Manage Product (Admin)
-[ ]7. Add Product (Admin)
-[ ]8. Update Product (Admin)
-[ ]9. Profile
-[ ]10. Cart Page (Member)
-[ ]11. History Page (Member)
+[x]6. Manage Product (Admin)
+[x]7. Add Product (Admin)
+[x]8. Update Product (Admin)
+[x]9. Delete Product (Admin)
+[x]10. Profile
+[ ]11. Cart Page (Member)
+[ ]12. History Page (Member)
 */
 
 Route::get('/', [HomeController::class, 'index']); // Home
 
+Route::get('/userprofile', [LoginController::class, 'getProfile']);
 Route::get('/login',[LoginController::class, 'login']); // Login
 Route::get('/register',[LoginController::class, 'register']); // Register
 Route::post('/register', [LoginController::class, 'regUser']);
@@ -43,6 +45,11 @@ Route::post('/login', [LoginController::class, 'logUser']);
 Route::get('/logout', [LoginController::class, 'logout']); // untuk destroy session
 
 Route::get('/product/category/{category}', [ProductController::class, 'getProductByCategoryId']); // View Product by Category
-Route::get('/product/admin', [ProductController::class, 'manageProduct']);
+Route::get('/product/manage', [ProductController::class, 'manageProduct']);
+Route::get('/product/update/{id}', [ProductController::class, 'updateProduct']);
+Route::post('/product/update/{id}', [ProductController::class, 'updateProductPost']);
+Route::get('/product/add', [ProductController::class, 'addProduct']);
+Route::post('/product/add', [ProductController::class, 'addProductPost']);
+Route::get('/product/delete/{id}', [ProductController::class, 'deleteProduct']);
 Route::get('/product/{id}', [ProductController::class, 'getProductDetailById']); // Product Detail
 

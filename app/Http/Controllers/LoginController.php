@@ -30,6 +30,15 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function getProfile(Request $req) {
+        if ($req->session()->has('user') && $req->session()->get('user')->userRole != "Guest") {
+            return view('profile', [
+                'user' => $req->session()->get('user'),
+            ]);
+        }
+        return Redirect::to('/login');
+    }
+
     public function logout(Request $req) {
         $req->session()->forget('user');
         return Redirect::to('/login');
