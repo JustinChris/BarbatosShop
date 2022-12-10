@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('transaction_details', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('transactionID');
             $table->foreign('transactionID')->references('transactionID')->on('transaction_header');
             $table->unsignedBigInteger('productID');

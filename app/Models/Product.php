@@ -17,4 +17,8 @@ class Product extends Model
         'productPhoto'
     ];
     public $timestamps = false;
+
+    public function transactionDetail() {
+        return $this->belongsTo(TransactionDetails::class, 'productID');
+    }
 }

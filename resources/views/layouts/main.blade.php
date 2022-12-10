@@ -22,7 +22,7 @@
                 <ul class="navbar-nav">
                     @if($user->userRole == 'Member')
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My Cart</a>
+                            <a class="nav-link" href="/transaction/cart">My Cart</a>
                         </li>
                     @endif
                     <li class="nav-item dropdown">
@@ -48,6 +48,9 @@
                         {{ $user->userName }}
                     </a>
                     <li class="dropdown-menu">
+                        @if($user->userRole == 'Member')
+                            <a class="dropdown-item" href="/transaction/history">History</a>
+                        @endif
                         <a class="dropdown-item" href="/userprofile">Profile</a>
                         <a class="dropdown-item text-danger" href="/logout">Logout</a>
                     </li>

@@ -5,8 +5,8 @@
     <img src="/profile/placeholder.jpg" alt="test" width="300px">
     <div style="padding-left: 30px; width: 100%;">
         <h1>{{ $singleProduct["productName"] }}</h1>
-        <form action="">
-            <table style="">
+        <form action="/transaction/cart/add/{{ $singleProduct['productID'] }}" method="POST">
+            <table>
                 <tr>
                     <th>Detail</th>
                     <td>{{ $singleProduct["productDetail"] }}</td>
@@ -16,11 +16,11 @@
                     <td>{{ $singleProduct["productPrice"] }}</td>
                 </tr>
             </table>
-            {{-- TODO: Ganti role jadi object User --}}
             @if ($user->userRole == "Member")
-                <label for=""><b>Qty:</b></label>
-                <input type="text" style="width: 90%">
-                <br> <br>
+                @csrf
+                <label for=""><b>Qty</b></label>
+                <input type="text" style="width: 90%" name='quantity'>
+                <br><br>
                 <input type="submit" value="Purchase">
             @endif
         </form>

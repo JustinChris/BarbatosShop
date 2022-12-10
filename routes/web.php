@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product as Product;
 
@@ -53,3 +54,8 @@ Route::post('/product/add', [ProductController::class, 'addProductPost']);
 Route::get('/product/delete/{id}', [ProductController::class, 'deleteProduct']);
 Route::get('/product/{id}', [ProductController::class, 'getProductDetailById']); // Product Detail
 
+Route::get('/transaction/cart', [TransactionController::class, 'getTransactionCart']);
+Route::post('/transaction/cart/add/{id}', [TransactionController::class, 'addProductToCart']);
+Route::get('/transaction/cart/remove/{id}', [TransactionController::class, 'removeProductFromCart']);
+Route::get('/transaction/cart/purchase', [TransactionController::class, 'purchaseCartProduct']);
+Route::get('/transaction/history', [TransactionController::class, 'getTransactionHistory']);

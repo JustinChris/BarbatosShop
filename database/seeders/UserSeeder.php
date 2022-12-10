@@ -39,6 +39,17 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'userName' => 'user1',
+            'userEmail' => 'user1@gmail.com',
+            'password' => 'user123',
+            'userGender' => 'Male',
+            'userDoB' => '2022-10-22',
+            'userCountry' => 'Indonesia',
+            'userPhoto' => 'https://broonet.com/wp-content/uploads/2020/03/mewarnai-gambar-kartun-1.jpg',
+            'userRole' => 'Member'
+        ]);
+
+        User::create([
             'userName' => 'admin123',
             'userEmail' => 'admin123@gmail.com',
             'password' => 'admin123',
