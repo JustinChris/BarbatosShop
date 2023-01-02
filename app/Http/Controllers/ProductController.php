@@ -85,6 +85,15 @@ class ProductController extends Controller
         if($req->session()->has('user') && $req->session()->get('user')->userRole != "Admin"){
             Redirect::to('/');
 		}
+
+        $req->validate([
+            'productNameAdd' => 'required',
+            'categoryIDAdd' => 'required',
+            'productDetailAdd' => 'required',
+            'productPriceAdd' => 'required|integer',
+            'productPhotoAdd' => 'required|image|mimes:jpg,png,jpeg'
+        ]);
+
         $product = new Product;
         $product->productName = $req->productNameAdd;
         $product->categoryID = $req->categoryIDAdd;
@@ -121,7 +130,13 @@ class ProductController extends Controller
         if($req->session()->has('user') && $req->session()->get('user')->userRole != "Admin"){
             Redirect::to('/');
 		}
-
+        $req->validate([
+            'productNameEdit' => 'required',
+            'categoryIDEdit' => 'required',
+            'productDetailEdit' => 'required',
+            'productPriceEdit' => 'required|integer',
+            'productPhotoEdit' => 'required|image|mimes:jpg,png,jpeg'
+        ]);
         $product = Product::find($id);
         $product->productName = $req->productNameEdit;
         $product->categoryID = $req->categoryIDEdit;
@@ -140,6 +155,7 @@ class ProductController extends Controller
         $product->save();
 
         return Redirect::to('/product/update/'.$id);
+
     }
 
     public function deleteProduct(Request $req, $id) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,10 +23,10 @@ class LoginController extends Controller
 
     public function login(Request $req) {
         if ($req->session()->has('user')) {
-            return view('home', [
+                return view('home', [
                 'user' => $req->session()->get('user'),
                 "products" => Product::all(),
-            ]);
+                ]);
         }
         return view('login');
     }
@@ -45,8 +46,8 @@ class LoginController extends Controller
     }
 
     public function logUser(Request $req) {
-        request()->validate([
-            'emailInput' => 'required',
+        $validateUser = $req->validate([
+            'emailInput' => 'required|max:255',
             'passInput' => 'required',
         ]);
 
@@ -63,6 +64,15 @@ class LoginController extends Controller
     }
 
     public function regUser(Request $req) {
+        $req->validate([
+            'NameInput' => 'required|min:5',
+            'EmailInput' => 'required|max:255|unique:users,userEmail',
+            'PassInput' => 'required|alpha_dash',
+            'GenderInput' => 'required',
+            'DOBInput' => 'required|before:today|after:01/01/1900',
+            'CountryInput' => 'required',
+        ]);
+
         $user = new User;
         $user->userName = $req->NameInput;
         $user->userEmail = $req->EmailInput;
